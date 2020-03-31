@@ -16,6 +16,10 @@ module.exports = {
     "no-console": "off",
     "class-methods-use-this": "off",
     quotes: "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "import/first": "off",
+    "arrow-parens": "off",
+    "import/no-extraneous-dependencies": "off",
+    "implicit-arrow-linebreak": "off"
   }
 };

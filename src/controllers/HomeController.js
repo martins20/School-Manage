@@ -1,7 +1,18 @@
+import Aluno from "../models/Aluno";
+
 class HomeController {
-  index(req, res) {
+  async store(req, res) {
+    const { name, lastname, email, age, weight, height } = req.body;
+    const novoAluno = await Aluno.create({
+      name,
+      lastname,
+      email,
+      age,
+      weight,
+      height
+    });
     res.json({
-      ok: true
+      message: novoAluno
     });
   }
 }

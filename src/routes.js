@@ -4,6 +4,6 @@ import HomeController from "./controllers/HomeController";
 
 const routes = new Router();
 
-routes.get("/", HomeController.index);
+routes.post("/", HomeController.store);
 
 export default routes;
