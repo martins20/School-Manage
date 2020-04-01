@@ -20,6 +20,9 @@ module.exports = {
     "import/first": "off",
     "arrow-parens": "off",
     "import/no-extraneous-dependencies": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "no-param-reassign": "off",
+    "object-curly-newline": "off",
+    "object-shorthand": "off"
   }
 };
