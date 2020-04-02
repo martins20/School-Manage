@@ -2,11 +2,11 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-import "./src/database/connection";
+import "./database/connection";
 
 import express from "express";
 
-import routes from "./src/routes";
+import routes from "./routes";
 
 class App {
   constructor() {
