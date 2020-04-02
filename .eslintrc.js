@@ -23,6 +23,8 @@ module.exports = {
     "implicit-arrow-linebreak": "off",
     "no-param-reassign": "off",
     "object-curly-newline": "off",
-    "object-shorthand": "off"
+    "object-shorthand": "off",
+    "nonblock-statement-body-position": "off",
+    curly: "off"
   }
 };
