@@ -1,4 +1,4 @@
-# IDeia
+# Ideia
 Make a RestFul api for schools.
 
 ## BackEnd
