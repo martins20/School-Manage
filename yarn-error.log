@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/local/bin/yarn add briptjs
+  /usr/bin/node /usr/local/bin/yarn add jasonwebtoken
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/briptjs: Not found
+  Error: https://registry.yarnpkg.com/jasonwebtoken: Not found
       at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66987:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140748:22)
       at Request.emit (events.js:189:13)
@@ -33,7 +33,7 @@ npm manifest:
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-      "dev": "nodemon server.js"
+      "dev": "nodemon ./src/server"
     },
     "devDependencies": {
       "dotenv": "^8.2.0",
@@ -45,6 +45,7 @@ npm manifest:
       "sucrase": "^3.13.0"
     },
     "dependencies": {
+      "bcryptjs": "^2.4.3",
       "express": "^4.17.1",
       "mariadb": "^2.3.1",
       "sequelize": "^5.21.5"
@@ -228,6 +229,11 @@ Lockfile:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
     integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
+  
+  bcryptjs@^2.4.3:
+    version "2.4.3"
+    resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
+    integrity sha1-mrVie5PmBiH/fNrF2pczAn3x0Ms=
   
   binary-extensions@^2.0.0:
     version "2.0.0"

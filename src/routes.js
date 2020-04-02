@@ -1,17 +1,22 @@
 import { Router } from "express";
 
-import HomeController from "./app/controllers/HomeController";
+import AuthController from "./app/controllers/AuthController";
 import UserController from "./app/controllers/UserController";
+
+import Authenticated from "./app/middleware/Authenticated";
 
 const routes = new Router();
 
-routes.post("/", HomeController.store);
-
 // Rotas de usuarios
-routes.get("/users", UserController.index);
-routes.get("/users/:id", UserController.show);
 routes.post("/users", UserController.store);
-routes.put("/users/:id", UserController.update);
-routes.delete("/users/:id", UserController.delete);
+// routes.get("/users", UserController.index);
+// routes.get("/users/:id", UserController.show);
+
+// Rota de Authenticação dos Usuarios
+routes.get("/", AuthController.store);
+
+// Rotas que precisam do Middleware de Authenticaçao
+routes.put("/users", Authenticated, UserController.update);
+routes.delete("/users", Authenticated, UserController.delete);
 
 export default routes;

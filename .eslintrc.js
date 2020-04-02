@@ -25,6 +25,7 @@ module.exports = {
     "object-curly-newline": "off",
     "object-shorthand": "off",
     "nonblock-statement-body-position": "off",
-    curly: "off"
+    curly: "off",
+    "consistent-return": "off"
   }
 };
