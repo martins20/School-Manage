@@ -1,4 +1,3 @@
-import jwt from "jsonwebtoken";
 import Student from "../models/Student";
 
 class StudentController {
