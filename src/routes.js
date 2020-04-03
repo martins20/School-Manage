@@ -3,6 +3,7 @@ import { Router } from "express";
 import AuthController from "./app/controllers/AuthController";
 import UserController from "./app/controllers/UserController";
 import StudentController from "./app/controllers/StudentController";
+import PhotoController from "./app/controllers/PhotoController";
 
 import Authenticated from "./app/middleware/Authenticated";
 
@@ -11,7 +12,7 @@ const routes = new Router();
 // Rotas de usuarios
 routes.post("/users", UserController.store);
 
-// routes.get("/users", UserController.index);
+routes.get("/users", UserController.index);
 // routes.get("/users/:id", UserController.show);
 
 // Rota de Authenticação dos Usuarios
@@ -26,6 +27,9 @@ routes.use(Authenticated);
 
 routes.put("/users", UserController.update);
 routes.delete("/users", UserController.delete);
+
+// Rotas de upload
+routes.post("/photos", PhotoController.store);
 
 // Rotas de Alunos
 routes.post("/students", StudentController.store);

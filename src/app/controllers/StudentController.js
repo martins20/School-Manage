@@ -1,21 +1,57 @@
 import Student from "../models/Student";
 
+import Photo from "../models/Photo";
+
 class StudentController {
   async index(req, res) {
-    const students = await Student.findAll();
-    res.json(students);
+    const students = await Student.findAll({
+      attributes: [
+        "id",
+        "name",
+        "lastname",
+        "email",
+        "age",
+        "weight",
+        "height"
+      ],
+      order: [
+        ["id", "DESC"],
+        [Photo, "id", "DESC"]
+      ],
+      include: {
+        model: Photo,
+        attributes: ["id", "filename"]
+      }
+    });
+    return res.json(students);
   }
 
   async show(req, res) {
     try {
-      const student = await Student.findByPk(req.params.id);
+      const student = await Student.findByPk(req.params.id, {
+        attributes: [
+          "id",
+          "name",
+          "lastname",
+          "email",
+          "age",
+          "weight",
+          "height"
+        ],
+        order: [
+          ["id", "DESC"],
+          [Photo, "id", "DESC"]
+        ],
+        include: {
+          model: Photo,
+          attributes: ["id", "filename"]
+        }
+      });
 
       if (!student)
         return res.status(400).json({ errors: ["Student not exists"] });
 
-      const { id, name, age, email, weight, heigth } = student;
-
-      return res.json({ id, name, age, email, weight, heigth });
+      return res.json(student);
     } catch (error) {
       return res
         .status(400)

@@ -26,6 +26,7 @@ module.exports = {
     "object-shorthand": "off",
     "nonblock-statement-body-position": "off",
     curly: "off",
-    "consistent-return": "off"
+    "consistent-return": "off",
+    camelcase: "off"
   }
 };
