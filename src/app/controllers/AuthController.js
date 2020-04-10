@@ -18,10 +18,10 @@ class AuthController {
     const { id } = user;
 
     const token = jwt.sign({ id, email }, process.env.SECRET, {
-      expiresIn: process.env.EXPIRATION
+      expiresIn: process.env.EXPIRATION,
     });
 
-    res.json({ token });
+    res.json({ token, user: { name: user.name, id, email } });
   }
 }
 
