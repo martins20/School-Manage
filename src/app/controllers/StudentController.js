@@ -12,16 +12,16 @@ class StudentController {
         "email",
         "age",
         "weight",
-        "height"
+        "height",
       ],
       order: [
         ["id", "DESC"],
-        [Photo, "id", "DESC"]
+        [Photo, "id", "DESC"],
       ],
       include: {
         model: Photo,
-        attributes: ["id", "filename"]
-      }
+        attributes: ["url", "filename"],
+      },
     });
     return res.json(students);
   }
@@ -36,16 +36,16 @@ class StudentController {
           "email",
           "age",
           "weight",
-          "height"
+          "height",
         ],
         order: [
           ["id", "DESC"],
-          [Photo, "id", "DESC"]
+          [Photo, "id", "DESC"],
         ],
         include: {
           model: Photo,
-          attributes: ["id", "filename"]
-        }
+          attributes: ["url", "filename"],
+        },
       });
 
       if (!student)
@@ -55,7 +55,7 @@ class StudentController {
     } catch (error) {
       return res
         .status(400)
-        .json({ errors: error.errors.map(err => err.message) });
+        .json({ errors: error.errors.map((err) => err.message) });
     }
   }
 
@@ -67,7 +67,7 @@ class StudentController {
     } catch (error) {
       return res
         .status(400)
-        .json({ errors: error.errors.map(err => err.message) });
+        .json({ errors: error.errors.map((err) => err.message) });
     }
   }
 
@@ -88,7 +88,7 @@ class StudentController {
     } catch (error) {
       return res
         .status(400)
-        .json({ errors: error.errors.map(err => err.message) });
+        .json({ errors: error.errors.map((err) => err.message) });
     }
   }
 
@@ -105,7 +105,7 @@ class StudentController {
     } catch (error) {
       return res
         .status(400)
-        .json({ errors: error.errors.map(err => err.message) });
+        .json({ errors: error.errors.map((err) => err.message) });
     }
   }
 }

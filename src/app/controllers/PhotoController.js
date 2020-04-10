@@ -2,7 +2,6 @@ import multer from "multer";
 import MulterConfig from "../../config/multer";
 
 import Photo from "../models/Photo";
-import Student from "../models/Student";
 
 const upload = multer(MulterConfig).single("file");
 
@@ -12,10 +11,10 @@ class PhotoController {
   async show(req, res) {}
 
   store(req, res) {
-    return upload(req, res, async error => {
+    return upload(req, res, async (error) => {
       if (error) {
         return res.status(400).json({
-          errors: [error]
+          errors: [error],
         });
       }
       try {
@@ -25,7 +24,7 @@ class PhotoController {
         const photo = await Photo.create({
           originalname,
           filename,
-          student_id
+          student_id,
         });
 
         return res.json(photo);
