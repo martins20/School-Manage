@@ -23,7 +23,7 @@ routes.get("/students", StudentController.index);
 routes.get("/students/:id", StudentController.show);
 
 // Rotas que precisam do Middleware de Authenticaçao
-// routes.use(Authenticated);
+routes.use(Authenticated);
 
 routes.put("/users", UserController.update);
 routes.delete("/users", UserController.delete);
