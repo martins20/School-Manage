@@ -11,7 +11,7 @@ export default function Login() {
   function handleClick(e) {
     e.preventDefault();
 
-    dispatch(exampleActions.HandleButton());
+    dispatch(exampleActions.HandleButtonRequest());
   }
   return (
     <Container>
