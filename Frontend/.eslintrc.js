@@ -27,5 +27,6 @@ module.exports = {
     'no-unused-vars': 0,
     'prettier/pretier': 0,
     'no-console': 0,
+    'jsx-a11y/label-has-associated-control': 0,
   },
 };
