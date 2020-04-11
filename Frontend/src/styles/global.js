@@ -32,6 +32,12 @@ export default createGlobalStyle`
     color: #FFF;
     border-radius: 4px;
     font-weight: 700;
+    transition: filter 300ms;
+
+    :hover {
+      filter: brightness(95%)
+    }
+
   }
 
   a {
