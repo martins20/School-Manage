@@ -3,7 +3,6 @@ import * as colors from '../config/colors';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;1,700&display=swap');
 
   * {
     margin: 0;

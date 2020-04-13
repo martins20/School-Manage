@@ -34,10 +34,10 @@ export default function StudentList() {
             <span>{user.name}</span>
             <span>{user.email}</span>
 
-            <Link to={`/user/${user.id}/edit`}>
+            <Link to={`/student/${user.id}/edit`}>
               <FaEdit size={16} />
             </Link>
-            <Link to={`/user/${user.id}/delete`}>
+            <Link to={`/student/${user.id}/delete`}>
               <FaWindowClose size={16} />
             </Link>
           </div>

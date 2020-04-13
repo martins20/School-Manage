@@ -6,7 +6,7 @@ export default (reducers) => {
     {
       key: 'SCHOOL-MANAGE',
       storage,
-      whitelist: ['example'],
+      whitelist: ['auth'],
     },
     reducers
   );
