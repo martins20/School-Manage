@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
-import { get } from 'lodash';
 
+import { useSelector, useDispatch } from 'react-redux';
 import { Container } from '../../styles/global';
 import { Form } from './styles';
-import axios from '../../services/api';
-import history from '../../services/history';
+import * as actions from '../../store/modules/auth/actions';
 
 export default function Register() {
+  const dispatch = useDispatch();
+
+  const { id, name: nameStored, email: emailStored } = useSelector(
+    (state) => state.auth.user
+  );
+
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    if (!id) return;
+
+    setName(nameStored);
+
+    setEmail(emailStored);
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -22,42 +35,27 @@ export default function Register() {
       formErrors = true;
 
       toast.error('Name should be 3 and 255 characters.');
-      return;
     }
 
     if (!isEmail(email)) {
       formErrors = true;
 
       toast.error('E-mail invalid.');
-      return;
     }
 
-    if (password.length < 3 || password.length > 50) {
+    if (!id && (password.length < 3 || password.length > 50)) {
       formErrors = true;
-
       toast.error('Password should be 6 and 50 characters.');
-      return;
     }
 
     if (formErrors) return;
 
-    try {
-      await axios.post('/users', { name, password, email });
-
-      toast.success('User Created with Success !');
-      toast.success('Redirecting to Home Page ...');
-
-      history.push('/login');
-    } catch (err) {
-      const errors = get(err, 'response.data.errors');
-
-      errors.map((error) => toast.error(error));
-    }
+    dispatch(actions.registerRequest({ name, email, password, id }));
   }
 
   return (
     <Container>
-      <h1>Faça um Registro de sua Conta</h1>
+      <h1>{id ? 'Editar Dados' : 'Faça um Registro de sua Conta'}</h1>
 
       <Form onSubmit={handleSubmit}>
         <label htmlFor="name">
@@ -90,7 +88,7 @@ export default function Register() {
           />
         </label>
 
-        <button type="submit">Criar minha conta</button>
+        <button type="submit">{id ? 'Salvar' : 'Criar minha conta'}</button>
       </Form>
     </Container>
   );
