@@ -21,7 +21,7 @@ class UserController {
     } catch (error) {
       return res
         .status(400)
-        .json({ errors: error.errors.map(err => err.message) });
+        .json({ errors: error.errors.map((err) => err.message) });
     }
   }
 
@@ -48,7 +48,7 @@ class UserController {
     } catch (error) {
       return res
         .status(400)
-        .json({ errors: error.errors.map(err => err.message) });
+        .json({ errors: error.errors.map((err) => err.message) });
     }
   }
 
@@ -64,7 +64,7 @@ class UserController {
     } catch (error) {
       return res
         .status(400)
-        .json({ errors: error.errors.map(err => err.message) });
+        .json({ errors: error.errors.map((err) => err.message) });
     }
   }
 }

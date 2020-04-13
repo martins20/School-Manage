@@ -11,7 +11,7 @@ import helmet from "helmet";
 
 import routes from "./routes";
 
-const whiteList = ["http://localhost:3333"];
+const whiteList = ["http://localhost:3000"];
 
 const corsOptions = {
   origin: function (origin, callback) {
