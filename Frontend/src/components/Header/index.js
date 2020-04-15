@@ -2,18 +2,11 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  FaHome,
-  FaSignInAlt,
-  FaUserAlt,
-  FaCircle,
-  FaPowerOff,
-} from 'react-icons/fa';
 import history from '../../services/history';
 
 import * as actions from '../../store/modules/auth/actions';
 
-import { Nav } from './styles';
+import { HeaderContainer } from './styles';
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -27,25 +20,36 @@ export default function Header() {
   }
 
   return (
-    <Nav>
-      <Link to="/">
-        <FaHome size={24} />
-      </Link>
-      <Link to="/register">
-        <FaUserAlt size={24} />
-      </Link>
-
-      {isLoggedIn ? (
-        <Link onClick={handleLogout} to="/login">
-          <FaPowerOff size={24} />
-        </Link>
-      ) : (
-        <Link to="/login">
-          <FaSignInAlt size={24} />
-        </Link>
-      )}
-
-      {isLoggedIn && <FaCircle size={10} color="#66ff33" />}
-    </Nav>
+    <HeaderContainer>
+      <ul>
+        <li>
+          <Link to="/">
+            <h1>School Manage</h1>
+          </Link>
+        </li>
+        <li>
+          {isLoggedIn ? (
+            <Link to="/register">
+              <p>Editar</p>
+            </Link>
+          ) : (
+            <Link to="/register">
+              <p>Registrar</p>
+            </Link>
+          )}
+        </li>
+        <li>
+          {isLoggedIn ? (
+            <Link onClick={handleLogout} to="/login">
+              <p>Sair</p>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <p>Entrar</p>
+            </Link>
+          )}
+        </li>
+      </ul>
+    </HeaderContainer>
   );
 }

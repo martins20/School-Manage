@@ -3,14 +3,21 @@ import { get } from 'lodash';
 import { toast } from 'react-toastify';
 import { isEmail, isInt, isFloat } from 'validator';
 import { useDispatch } from 'react-redux';
-import { FaUserCircle, FaEdit } from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-import { Container } from '../../styles/global';
-import { Form, ProfilePicture, Title } from './styles';
+import {
+  Form,
+  ProfilePicture,
+  Title,
+  StudentContainer,
+  RightContainer,
+  LeftContainer,
+} from './styles';
 import axios from '../../services/api';
 import history from '../../services/history';
 import * as actions from '../../store/modules/auth/actions';
+import Photo from '../Photo';
 
 export default function Student({ match }) {
   const id = get(match, 'params.id', false);
@@ -130,57 +137,72 @@ export default function Student({ match }) {
   }
 
   return (
-    <Container>
-      <Title>{id ? 'Edit Student' : 'New Student'} </Title>
+    <StudentContainer>
+      <LeftContainer>
+        <Title>{id ? 'Editar Dados' : 'Novo Aluno'} </Title>
 
-      {id && (
-        <ProfilePicture>
-          {photo ? <img src={photo} alt={name} /> : <FaUserCircle size={180} />}
-          <Link to={`/photo/${id}`}>
-            <FaEdit size={24} />
-          </Link>
-        </ProfilePicture>
-      )}
-      <Form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Nome"
-        />
-        <input
-          type="text"
-          value={lastname}
-          onChange={(e) => setLastname(e.target.value)}
-          placeholder="Sobrenome"
-        />
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-        />
-        <input
-          type="number"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-          placeholder="Idade"
-        />
-        <input
-          type="text"
-          value={weight}
-          onChange={(e) => setWeight(e.target.value)}
-          placeholder="Peso"
-        />
-        <input
-          type="text"
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
-          placeholder="Altura"
-        />
+        {!id && (
+          <ProfilePicture>
+            <FaUserCircle size={300} color="#a80048" />
+          </ProfilePicture>
+        )}
 
-        <button type="submit">{id ? 'Editar' : 'Criar'}</button>
-      </Form>
-    </Container>
+        {id && (
+          <ProfilePicture>
+            {photo ? (
+              <Link to={`/photo/${id}`}>
+                <img src={photo} alt={name} size={300} />
+              </Link>
+            ) : (
+              <Link to={`/photo/${id}`}>
+                <FaUserCircle size={300} color="#a80048" />
+              </Link>
+            )}
+          </ProfilePicture>
+        )}
+      </LeftContainer>
+      <RightContainer>
+        <Form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Nome"
+          />
+          <input
+            type="text"
+            value={lastname}
+            onChange={(e) => setLastname(e.target.value)}
+            placeholder="Sobrenome"
+          />
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+          />
+          <input
+            type="number"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+            placeholder="Idade"
+          />
+          <input
+            type="text"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+            placeholder="Peso"
+          />
+          <input
+            type="text"
+            value={height}
+            onChange={(e) => setHeight(e.target.value)}
+            placeholder="Altura"
+          />
+
+          <button type="submit">{id ? 'Editar' : 'Criar'}</button>
+        </Form>
+      </RightContainer>
+    </StudentContainer>
   );
 }

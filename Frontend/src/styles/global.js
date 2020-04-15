@@ -4,6 +4,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
 
+  header {
+    width: 100%
+  }
+
   * {
     margin: 0;
     padding: 0;
@@ -14,12 +18,13 @@ export default createGlobalStyle`
   body {
     font-family:  Rotobo, sans-serif;
     font-size: 16px;
-    background: ${colors.primaryDarkColor};
+    background: #f1f1f1;
 
   }
 
   html, body, #root {
-    height: 100%
+    width: 100%;
+    height: 100%;
   }
 
   button {
@@ -34,7 +39,7 @@ export default createGlobalStyle`
     transition: filter 300ms;
 
     :hover {
-      filter: brightness(95%)
+      filter: brightness(85%)
     }
 
   }
@@ -60,10 +65,10 @@ export default createGlobalStyle`
 `;
 
 export const Container = styled.section`
-  max-width: 480px;
+  width: 90%;
   background: #fff;
   margin: 30px auto;
   padding: 30px;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;

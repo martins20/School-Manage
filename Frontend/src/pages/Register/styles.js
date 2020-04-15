@@ -28,3 +28,9 @@ export const Form = styled.form`
     }
   }
 `;
+
+export const Title = styled.h1`
+  text-align: center;
+  color: ${colors.primaryColor};
+  font-size: 2.5em;
+`;

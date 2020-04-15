@@ -2,17 +2,31 @@ import styled from 'styled-components';
 
 import { primaryColor } from '../../config/colors';
 
-export const Nav = styled.header`
-  background: ${primaryColor};
-  padding: 20px;
+export const HeaderContainer = styled.header`
+  width: 100%;
+  background: #fff;
   display: flex;
-  flex-direction: table-row;
-  align-items: center;
-  justify-content: center;
 
-  a {
-    color: #fff;
-    margin: 0 10px 0;
-    font-weight: 700;
+  ul {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  li {
+    padding: 10px;
+
+    :first-child {
+      margin-right: auto;
+    }
+  }
+  li a {
+    color: ${primaryColor};
+
+    :hover {
+      color: #a80048;
+    }
   }
 `;

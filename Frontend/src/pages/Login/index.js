@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { get } from 'lodash';
 
 import { Container } from '../../styles/global';
-import { Form } from './styles';
+import { Form, Title } from './styles';
 import * as actions from '../../store/modules/auth/actions';
 
 export default function Login(props) {
@@ -40,20 +40,20 @@ export default function Login(props) {
 
   return (
     <Container>
-      <h1>Login</h1>
+      <Title>Login</Title>
 
       <Form onSubmit={handleSubmit}>
         <input
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Seu melhor email"
+          placeholder="Email"
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Sua senha"
+          placeholder="Senha"
         />
         <button type="submit">Entrar</button>
       </Form>

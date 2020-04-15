@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Container } from '../../styles/global';
+import { Container, Title } from './styles';
 
 export default function Page404() {
   return (
     <Container>
-      <h1>Page Not Found Error 404</h1>
+      <Title>Pagina Não encontrada ...</Title>
     </Container>
   );
 }
