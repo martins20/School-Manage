@@ -10,7 +10,7 @@ import {
 import { toast } from 'react-toastify';
 
 import { Container } from '../../styles/global';
-import { UserContainer, ProfilePicture } from './styles';
+import { UserContainer, ProfilePicture, NewStudent } from './styles';
 import axios from '../../services/api';
 
 export default function StudentList() {
@@ -51,6 +51,8 @@ export default function StudentList() {
   return (
     <Container>
       <h1>Students</h1>
+
+      <NewStudent to="/student">New Student</NewStudent>
       <UserContainer>
         {users.map((user, index) => (
           <div key={String(user.id)}>

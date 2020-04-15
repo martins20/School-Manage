@@ -17,7 +17,7 @@ export default function Routes() {
 
       <MyRoute exact path="/student/:id/edit" component={Student} isClosed />
       <MyRoute exact path="/student" component={Student} isClosed />
-      <MyRoute exact path="/photos" component={Photo} isClosed />
+      <MyRoute exact path="/photo/:id" component={Photo} isClosed />
 
       <MyRoute exact path="/register" component={Register} />
       <MyRoute exact path="/login" component={Login} />
